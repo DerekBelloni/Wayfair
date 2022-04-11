@@ -18,9 +18,9 @@ namespace Wayfair.Repositories
     {
       string sql = @"
       INSERT INTO reservations
-      (reservationType, reservationName, confirmationKey, reservationAddress, tripId, creatorId)
+      (reservationType, reservationName, confirmationKey, reservationAddress, tripId, creatorId, cost)
       VALUES
-      (@ReservationType, @ReservationName, @ConfirmationKey, @ReservationAddress, @TripId, @CreatorId);
+      (@ReservationType, @ReservationName, @ConfirmationKey, @ReservationAddress, @TripId, @CreatorId, @Cost);
       SELECT LAST_INSERT_ID;";
       int id = _db.ExecuteScalar<int>(sql, reservationData);
       reservationData.Id = id;

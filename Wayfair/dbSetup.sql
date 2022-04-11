@@ -14,7 +14,6 @@ CREATE TABLE IF NOT EXISTS reservations(
   reservationName TEXT NOT NULL,
   confirmationKey TEXT NOT NULL,
   reservationAddress TEXT NOT NULL,
-  reservationDate TEXT NOT NULL,
   creatorId VARCHAR(255) NOT NULL,
   tripId INT NOT NULL,
   cost TEXT NOT NULL,
@@ -29,4 +28,24 @@ CREATE TABLE IF NOT EXISTS trips(
   creatorId VARCHAR(255) NOT NULL,
   FOREIGN KEY (creatorId) REFERENCES accounts(id)
 ) default charset utf8 COMMENT '';
-DROP TABLE trips
+DROP TABLE reservations;
+INSERT INTO
+  reservations (
+    reservationType,
+    reservationName,
+    confirmationKey,
+    reservationAddress,
+    tripId,
+    creatorId,
+    cost
+  )
+VALUES
+  (
+    @ReservationType,
+    @ReservationName,
+    @ConfirmationKey,
+    @ReservationAddress,
+    @TripId,
+    @CreatorId,
+    @Cost
+  );

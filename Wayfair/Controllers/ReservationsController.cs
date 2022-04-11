@@ -8,7 +8,7 @@ using Wayfair.Services;
 namespace Wayfair.Controllers
 {
   [ApiController]
-  [Route("[controller]")]
+  [Route("api/[controller]")]
   public class ReservationsController : ControllerBase
   {
     private readonly ReservationsService _reservationsService;
